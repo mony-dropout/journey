@@ -3,7 +3,7 @@ using namespace std;
 string decr(string s, int j)
 {
     for (int i=0;i<s.length();i++)
-    {   if (s[i]==' ') {continue;}
+    {   if (!isalpha(s[i])) {continue;}
         int t=int(s[i])-'a'-j;
         t=(t+26)%26;
         s[i]=char(t+int('a'));
@@ -14,7 +14,7 @@ string decr(string s, int j)
 string encr(string s, int j)
 {
     for (int i=0;i<s.length();i++)
-    {   if (s[i]==' ') {continue;}
+    {   if (!isalpha(s[i])) {continue;}
         int t=int(s[i]-'a')+j;
         t=(t+26)%26;
         s[i]=char(int('a')+t);
