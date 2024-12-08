@@ -1,15 +1,28 @@
-//gcd
 #include <bits/stdc++.h>
 using namespace std;
-int ggc(int a, int b)
+string decr(string s, int j)
 {
-    if (a%b==0) return b;
-    else return ggc(b,a%b);
+    for (int i=0;i<s.length();i++)
+    {   int t=int(s[i])-'a'-j;
+        t=(t+26)%26;
+        s[i]=char(t+int('a'));
+    }
+    return s;
+
+}
+string encr(string s, int j)
+{
+    for (int i=0;)
 }
 int main()
 {
-    int a,b;
-    cin>>a>>b;
-    cout<<ggc(a,b)<<endl;
+    int j; cin>>j;   
+    string s;
+    cin>>s; //takes input till you press ctrl+d 
+    
+    cout<<decr(s,j);
     return(0);
+    
+    
+
 }
