@@ -24,13 +24,24 @@ string encr(string s, int j)
 int main()
 {
     int j; cin>>j;   
+    
     int eord;
     cin>>eord;
-    string s;
-    while(getline(cin,s,'\x04')); //takes input till you press ctrl+d 
+    string s; 
+    string para;
+    //cin>>s;
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    //getline(cin,s);
+    while(getline(cin,s))
+    {
+        para+=s+' ';
+        
+    }
+    //string s;
+    //while(getline(cin,s,'\x04')); //takes input till you press ctrl+d 
     
-    if (eord==1) {cout<<decr(s,j);}
-    if (eord==0) {cout<<encr(s,j);}
+    if (eord==1) {cout<<decr(para,j);}
+    if (eord==0) {cout<<encr(para,j);}
     
     cout<<endl;
     return(0);
