@@ -1,51 +1,82 @@
+//im trynna find the freq of each letter, bigram, first letter freq
 #include <bits/stdc++.h>
 using namespace std;
-string decr(string s, int j)
+const int top=6;
+void low(char &c)
 {
-    for (int i=0;i<s.length();i++)
-    {   if (!isalpha(s[i])) {continue;}
-        int t=int(s[i])-'a'-j;
-        t=(t+26)%26;
-        s[i]=char(t+int('a'));
+    if (int(c)>96) {
+        c=char(int(c)-32);
     }
-    return s;
-
+    
 }
-string encr(string s, int j)
-{
-    for (int i=0;i<s.length();i++)
-    {   if (!isalpha(s[i])) {continue;}
-        int t=int(s[i]-'a')+j;
-        t=(t+26)%26;
-        s[i]=char(int('a')+t);
+void maptovectorchar(vector<pair<char,int>> &v, map<char,int> m)
+{   int i=0;
+    for (const auto& [key,value]:m)
+    {
+        v[i].first=key;
+        v[i].second=value;
     }
-    return s;
+    sort(v.begin(),v.end(),[=](pair<char,int> a, pair<char,int> b) {return b.second<a.second;});
+}
+void maptovectorstring(vector<pair<string,int>> &v, map<string,int> m)
+{   int i=0;
+    for (const auto& [key,value]:m)
+    {
+        v[i].first=key;
+        v[i].second=value;
+    }
+    sort(v.begin(),v.end(),[=](pair<string,int> a, pair<string,int> b) {return b.second<a.second;});
+}
+void printcharv(vector<pair<char,int>> v)
+{
+    for (auto ptr=v.rbegin(); ptr-v.rbegin() < top ; ptr++)
+    {
+        auto p=*ptr;
+        cout<<p.first<<" "<<p.second<<endl;
+    }
+}
+void printstringv(vector<pair<string,int>> v)
+{
+    for (auto ptr=v.rbegin(); ptr-v.rbegin() < top ; ptr++)
+    {
+        auto p=*ptr;
+        cout<<p.first<<" "<<p.second<<endl;
+    }
 }
 int main()
 {
-    int j; cin>>j;   
-    
-    int eord;
-    cin>>eord;
-    string s; 
-    string para;
-    //cin>>s;
-    cin.ignore(numeric_limits<streamsize>::max(),'\n');
-    //getline(cin,s);
+    map<char,int> f; //freq
+    map<string,int> bf; //bigram freq
+    map<char,int> ff; //first letter freq
+    string s;
+    string p; //p is my actual string im operatin on
     while(getline(cin,s))
     {
-        para+=s+' ';
-        
+        p+=s+' ';
     }
-    //string s;
-    //while(getline(cin,s,'\x04')); //takes input till you press ctrl+d 
+    p=' '+p;//so i dont gotta deal w i=0 bullshit
+    for (int i=0;i<p.length();i++)
+    {
+        if (!isalpha(p[i])) {continue;}
+        low(p[i]);
+        f[p[i]]++;
+        if (p[i-1]==' ') {ff[p[i]]++;}
+        if (isalpha(p[i+1])) {string t; t+= p[i]+p[i+1]; bf[t]++;}
+    }
+    vector<pair<char,int>> fv,ffv;
     
-    if (eord==1) {cout<<decr(para,j);}
-    if (eord==0) {cout<<encr(para,j);}
-    
-    cout<<endl;
+    vector<pair<string,int>> bfv;
+    maptovectorchar(fv,f);
+    maptovectorchar(ffv,ff);
+    maptovectorstring(bfv,bf);
+    cout<<"frequency normal: \n";
+    printcharv(fv);
+    cout<<"first letter frequency: \n";
+    printcharv(ffv);
+    cout<<"bigram frequency: \n";
+    printstringv(bfv);
     return(0);
     
     
-
+    
 }
