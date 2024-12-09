@@ -10,26 +10,29 @@ void low(char &c)
     
 }
 void maptovectorchar(vector<pair<char,int>> &v, map<char,int> m)
-{   int i=0;
+
+{   v.resize(m.size());
+    int i=0;
     for (const auto& [key,value]:m)
     {
         v[i].first=key;
         v[i].second=value;
     }
-    sort(v.begin(),v.end(),[=](pair<char,int> a, pair<char,int> b) {return b.second<a.second;});
+    sort(v.begin(),v.end(),[=](pair<char,int> a, pair<char,int> b) {return b.second>a.second;});
 }
 void maptovectorstring(vector<pair<string,int>> &v, map<string,int> m)
-{   int i=0;
+{   v.resize(m.size());
+    int i=0;
     for (const auto& [key,value]:m)
     {
         v[i].first=key;
         v[i].second=value;
     }
-    sort(v.begin(),v.end(),[=](pair<string,int> a, pair<string,int> b) {return b.second<a.second;});
+    sort(v.begin(),v.end(),[=](pair<string,int> a, pair<string,int> b) {return b.second>a.second;});
 }
 void printcharv(vector<pair<char,int>> v)
 {
-    for (auto ptr=v.rbegin(); ptr-v.rbegin() < top ; ptr++)
+    for (auto ptr=v.end()-1; ptr!=v.end()-top; ptr++)
     {
         auto p=*ptr;
         cout<<p.first<<" "<<p.second<<endl;
@@ -37,7 +40,7 @@ void printcharv(vector<pair<char,int>> v)
 }
 void printstringv(vector<pair<string,int>> v)
 {
-    for (auto ptr=v.rbegin(); ptr-v.rbegin() < top ; ptr++)
+    for (auto ptr=v.end()-1; ptr!=v.end()-top; ptr++)
     {
         auto p=*ptr;
         cout<<p.first<<" "<<p.second<<endl;
@@ -61,7 +64,7 @@ int main()
         low(p[i]);
         f[p[i]]++;
         if (p[i-1]==' ') {ff[p[i]]++;}
-        if (isalpha(p[i+1])) {string t; t+= p[i]+p[i+1]; bf[t]++;}
+        if (isalpha(p[i+1])) {string t; t+= p[i]; t+=p[i+1]; bf[t]++;}
     }
     vector<pair<char,int>> fv,ffv;
     
