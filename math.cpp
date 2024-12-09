@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main()
+void f(int n, int k) //writing n as sum of 
 {
-    cout<<int('a')<<" "<<int('A');
+    
 }
