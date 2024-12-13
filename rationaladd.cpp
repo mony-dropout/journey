@@ -7,7 +7,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int M;
-vector<int> power(M,1); //ill change this in the first line of int main after taking n as input
+int n; //take n as an input
+//vector<int> power(M,1); //ill change this in the first line of int main after taking n as input
 //first i want something that will convert decimals to rational numbers
 //btw, you dont gotta worry about nothing bruh, this is your life, just do whatever the fuck you feel like all the time lmao, that's it
 int gcd(int a, int b) 
@@ -38,16 +39,19 @@ pii add(pii p, pii q)
     return ans;
 
 }
-pii aiqi(vp v, int q, int n) //this is a_0q^0+a_1q+a_2q^2
-{   
+pii aiqi(vp v, int q, int d) //this is a_0q^0+a_1q+a_2q^2+...a_dq^d;
+{   int power=1;
     
     pii ans={0,1};
-    for (int i=0;i<=q;i++)
+    for (int i=0;i<=d;i++)
     {
         pii p=v[i];
         
-        pii qt=times(power[i],p);
+        pii qt=times(power,p);
+        power*=q;
         
         ans=add(ans,qt);
     }
+    return ans;
 }
+pii solve()
