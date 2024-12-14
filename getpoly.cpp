@@ -10,3 +10,4 @@ void getpoly(vector<int> &p) //thisll modify the storage poly vector
         //initialising presumably takes time
     }
 }
+//this works
