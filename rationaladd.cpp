@@ -1,3 +1,5 @@
+//this program is trying to figure out how to solve linear equations and get rational numbers as answers, like normally, youd get answer in decimal,
+//but i want answers in rational numbers, im trynna make smthn ;)
 //i wanna try to find 1^n+2^n+...q^n
 //n=0: <0,1>
 //n=1: <0,1/2,1/2>
