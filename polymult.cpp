@@ -2,6 +2,7 @@
 using namespace std;
 using vi=vector<int>;
 using vii=vector<vi>;
+int n;
 void getpoly(vector<int> &p) //thisll modify the storage poly vector
 {   int n=p.size()-1;
     for (int i=0;i<=n;i++)
@@ -27,27 +28,28 @@ void polymult(vi a, vi b, vi & c) //youre multiplying a and b to get c, but we m
 }
 vi multipolymult(vii v) //v[i] is the ith polynomial
 {
-    vi c;
+    vi c={1};
     int dc=0;
-    for (vi x: v)
+    /*for (vi x: v)
     {
         dc+=x.size()-1;
 
-    }
-    c.resize(dc+1);
-    c[0]=1;
-    vi t(dc+1);
-    for (int i=0;i<=v.size()-1;i++)
+    }*/
+    //c.resize(dc+1);
+    //c.push_back(1);
+    vi t;
+    for (int i=0;i<n;i++)
     {
         polymult(v[i],c,t);
-        copy(t.begin(),t.end(),c.begin());
+        //copy(t.begin(),t.end(),c.begin());
+        c=t;
     }
     return c;
 }
 int main()
 {
     
-    int n; cin>>n; //number of polynomials;
+    cin>>n; //number of polynomials;
     vii v(n);
     for (int i=0;i<n;i++)
     {
