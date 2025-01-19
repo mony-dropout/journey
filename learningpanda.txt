@@ -1,0 +1,19 @@
+select rows where
+	. the phone starts w 91
+	. the name is not empty
+fdf=df.dropna(subset=[‘name’])
+fdf=fdf[fdf[‘phone’].str.startswith(’91’)]
+
+filter rows where the name contains the substring bhaiya
+haha
+fdf=df[df[‘name’].str.contains(‘bhaiya’)]
+add a coloumn to indicate where the phone is missing
+for i, r in df.iterrows():
+	if df[‘phone’]~NaN:
+		df[‘phone_exist’]=true;
+	else:
+		df[‘phone_exist’]=false;
+ORRR (i guess the only issue is i dont know how ot handle phone != NaN in python)
+df[‘phone_exist’]=df[df[‘phone’]!=NaN] ???
+fiter out rows where phone number is atleast 11 characters
+fdf=df[df[‘phone’].str.length() < 11] i guess thats how it should work? thats what happens in c++, not sure about python lol
