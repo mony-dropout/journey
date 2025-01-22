@@ -1,19 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
-using vi=vector<int>;
-vector<string> towords(string s)
-{   vector<string> v;
-    int start=0; 
-    for (int i=0;i<s.length();i++)
-    {
-        if (s[i]==' ') {v.push_back(s.substr(start,i-start)); start=i;}
-    }
-    for (string& s:v)
-    {
-        transform(s.begin(),s.end(),s.begin(),::tolower);
-    }
-    return v;
+bool isnum(char x){
+    int t=int(x);
+    if ((t>=48) && (t<=57)) {return true;}
+    else {return false;} 
 }
+int intdig(char x)
+{
+    if (isnum(x)) {return int(x)-48;}
+    else {return -420;}
+}
+using pii=pair<int,int>;
 int main()
 {   map<string,int> mon;
 mon["jan"]=1;
@@ -28,46 +25,61 @@ mon["sep"]=9;
 mon["oct"]=10;
 mon["nov"]=11;
 mon["dec"]=12;
-
-    vector<pair<string,string>> mony;
-    for (int i=0;i<54;i++)
-    {   
-        string x;
-        getline(cin,x);
-        int dash=0;
-        for (int j=0;j<x.length();j++)
+    vector<pair<string,string>> v;
+    for (int i=0;i<53;i++)
+    {
+        string s; getline(cin,s);
+        for (int k=0;k<s.length();k++)
         {
-            if (x[j]=='-' ) {dash=j;}
+            if (isalpha(s[k])) {if (int(s[k])<91) {s[k]=char(int(s[k]+32));} }
         }
+        int dash;
+        for (int j=0;j<s.length();j++)
+        {
+            if (s[j]=='-') {dash=j; break;}
+        }
+        string a=s.substr(0,dash);
+        string b=s.substr(dash+1);
         
-        string a=x.substr(0,dash);
-        string b=x.substr(dash+1);
-        vector<string> v=towords(a);
-        int t=0;
-        for (string s: v) 
+        for (int j=0; j<=dash-3;j++)
         {
-            if (mon.count(s)) {t=1; break;}
+            if (mon.count(a.substr(j,3))) {string t=a; a=b; b=t;} //name,birthday
         }
-        if (t==0) {
-            mony.push_back( make_pair(a,b));
-        }
-        else {mony.push_back(make_pair(b,a));}
-//so basically first part of pair is name, second part of pair is birthday
-    vector<string> p=towords(mony[i].second);
-    int month=mon[p[1]];
-    int day=stoi(p[0]);
-    int bday=100*month+day;
-    mony[i].second=to_string(bday);
-
-
+        v.push_back(make_pair(a,b));
     }
-    sort(mony.begin(),mony.end(),[=](pair<string,string> a, pair<string,string> b){return stoi(a.second)<stoi(b.second);}) ;
-    for (int i=0;i<54;i++)
-    {   int n=stoi(mony[i].second);
-
-        cout<<mony[i].first<<" : "<<n%100<<"/"<<n/100<<endl;
-    }
-return(0);
+    //int n; cin>>n; cout<<v[n].first<<"does this work"<<v[n].second;
     
+    vector<pair<int,int>> val(53) ; //(index,birithday value)
+    for (int i=0;i<53;i++)
+    {
+        val[i].first=i;
+        int month;
+        string b=v[i].second;
+        for (int j=0;j<=b.length()-3;j++)
+        {
+            if (mon.count(b.substr(j,3))) {month=mon[b.substr(j,3)]; break;}
+        }
+        int day=0;
+        int dig;
+        for (int j=0;j<=b.length()-2;j++)
+        {
+            
+            if (isnum(b[j])) {dig=j; break;}
+        }
+
+        if (isnum(b[dig+1]))  {day=10*intdig(b[dig])+intdig(b[dig+1]);}
+        else day=intdig(b[dig]);
+        val[i].second=100*month+day;
+        
+    }
+    sort(val.begin(),val.end(),[=](pii a, pii b) {return (a.second<b.second);});
+    for (int i=0;i<53;i++)
+    {
+        int index=val[i].first;
+        cout<<v[index].first<<" - "<<v[index].second<<endl;
+    }
+
+    //int n; cin>>n; cout<<v[n].first<<"  this work "<<v[n].second<<endl<<val[n].first<<endl<<val[n].second;
+    return(0);
     
 }
