@@ -62,7 +62,7 @@ int main()
 isp(1);
 euler(1);
 int cur=0;
-for (int i=1;i<=11;i++)
+for (int i=1;i<=12;i++)
 {
     cur+=t(i);
     cout<<"T("<<i<<")"<<" : "<<cur<<endl;
@@ -71,6 +71,6 @@ for (int i=1;i<=11;i++)
 
 //remember to call euler and isp first
 //work
-int nm;
+
 return(0);
 }
