@@ -70,6 +70,7 @@ for (int i=1;i<=11;i++)
 
 
 //remember to call euler and isp first
-
+//work
+int nm;
 return(0);
 }
