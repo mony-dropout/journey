@@ -71,6 +71,7 @@ for (int i=1;i<=12;i++)
 
 //remember to call euler and isp first
 //work
+//push yourself past exhaustion
 
 return(0);
 }
