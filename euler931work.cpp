@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int N=1000;
-#include <fstream>
+//#include <fstream>
 
 //make euler function calculator
 //make isp
@@ -10,7 +10,6 @@ int N=1000;
 vector<bool> vp(N+1,true); //THIS IS THE PRIME BOOLEAN VECTOR
 void isp(int )
 {
-
     //vector<bool> v(n+1,true);
     vp[0]=false;
     vp[1]=false;
@@ -43,34 +42,19 @@ void euler(int )
     }
     return;
 }
-//euler works
-int t(int n)
-{ int ans=0;
-    for (int i=1;i<=n;i++)
-    {
-        if (n%i!=0) {continue;}
-        for (int j=2;j<=n/i;j++)
-        {
-            if (n%(i*j)==0 && vp[j]) {ans+=phi[j*i]-phi[i];}
-        }
-    }
-    return ans;
-}
-
 int main()
 {
-isp(1);
-euler(1);
-int cur=0;
-for (int i=1;i<=12;i++)
+    euler(1);
+    isp(1);
+int n; cin>>n;
+int ans=0;
+for (int p=1;p<=n;p++)
 {
-    cur+=t(i);
-    cout<<"T("<<i<<")"<<" : "<<cur<<endl;
+    if(!vp[p]) {continue;}
+    for (int b=1;b<=n;b++)
+    {
+        ans+=(floor(n/(b*p))*(phi[b*p]-phi[b]));
+    }
 }
-
-
-//remember to call euler and isp first
-//work
-
-return(0);
+cout<<ans<<endl;
 }
