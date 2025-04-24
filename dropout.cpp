@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
+using pii=pair<int,int>;
 int main()
 {
-    char x; cin>>x; cout<<int(x);
-    return(0);
+pii p={1,2};
+cout<<p.first<<" "<<p.second;
+return(0);
 }
