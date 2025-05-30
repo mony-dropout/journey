@@ -3,7 +3,7 @@ using namespace std;
 using pii=pair<int,int>;
 int main()
 {
-pii p={1,2};
-cout<<p.first<<" "<<p.second;
+string s=to_string(3);
+cout<<"i wanna"<<s<<"best";
 return(0);
 }

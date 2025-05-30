@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 using pii=pair<int,int>;
-pair addp(pii p1, pii p2)
+pii addp(pii p1, pii p2)
 {
     return {p1.first+p2.first,p1.second+p2.second};
 }
-pair multp(pii p, int c)
+pii multp(pii p, int c)
 {
     return {p.first*c,p.second*c};
 }
