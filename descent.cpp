@@ -1,35 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
-using vi=vector<int>;
-int fact(int n)
-{
-    if (n==0){return 1;}
-    else {return n*fact(n-1);}
-}
+using vi=vector<int>; 
+using vii=vector<vi>;
+vii c;
 int binom(int n, int k)
-{
-    return (fact(n))/(fact(k)*fact(n-k));
+{   if (k<0) {return 0;}
+    if (k>n) {return 0;}
+    if (k==0) {return 1;}
+    if (k==n) {return 1;}
+    if (c[n][k]>0) {return c[n][k];}
+    else {c[n][k]=binom(n-1,k-1)+binom(n-1,k); return c[n][k];}
 }
-vector<int> des(int n, vi x)
-{   vi t(n,0);
-    for (int a=0;a<=n-1;a++)
+int coeff(int a, int t)
+{
+    int ans=0;
+    
+    for(int p=0; p<=min(t,a+1); p++)
     {
-        for (int l=a;l>=0;l--)
-        {
-            t[a]+=pow(-1,a-l)*x[l]*binom(n-1-l,a-l);
-        }
-
+        ans+=pow(t-p,a)*(1-2*(p%2))*binom(a+1,p);
+        
     }
-    return t;
+    return ans;
 }
 int main()
 {
-    int n=5; //give n
-    vi x={1,30,150,240,120}; //give x (you can calculate this too i guess)
-    vi t= des(n,x);
-    for (int m: t)
+    int n; cin>>n;
+    c.resize(n+2,vi(n+2,-1));
+    for (int t=0;t<=2*n +1 ; t++)
     {
-        cout<<m<<" ";
+        cout<<"x^"<<t<<" : "<<coeff(n,t)<<endl;
     }
+
     return(0);
+    
 }
+//works perfectly wow
