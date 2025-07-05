@@ -1,0 +1,20 @@
+ok i guess keeping in mind mony method, i was trying to solve streaks 
+(frmo clrs ch.5 ) which is expected value of max consecutive flips if 
+theta(logn)... this is what we gotta prove, ive been trying this for a 
+while with no special progress yet, some of the things i have tride are:
+defined t(f,n) [no. of n bit binary strings with max consec. heads=f] and 
+T(f,n) [no. of n bit binary strings with no more than f consecutive heads] 
+and then i found a recursion for E(n) (expected value) in terms of like: 
+E(n+1)=E(n)+(1+\sum _(f=0)^(n-1) T(f,n-f))/2^(n+1) i wrote code and this 
+is correct, so now it suffices to prove the second terms is theta(1/n) but 
+i have no idea how to... i had proved that you can basically discard all 
+terms over n/2 in the sum, so like \sum f>n/2 T(f,n-f) is theta(1/2^(n/2)) 
+cos obv if f>n-f then T(f,n-f) is just 2^(n-f) {*** explain why so that i 
+know you follow what im saying, this is trivial} ... ok but yeah i mean 
+from this i can write E in terms of just T but i dont see any use there 
+either... so yeah, im basically stuck.... but you remember mony method 
+right, i dont want a solution, i want you to tell me some possible attack 
+paths to this problem (please remember i do not want the solution) like 
+what are some things i can try, cos like rn i dont know what to do at 
+all... if possible attack paths are related to my progress even 
+better...also whatchu think of my progresss..... letsgo
