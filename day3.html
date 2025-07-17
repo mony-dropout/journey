@@ -1,0 +1,81 @@
+day 3
+15 july 10:41 pm <br>
+about 30 mins ago, i was watching silicon valley, S1E8… for the past couple days, i hadnt been able to work well at all… just feeling tired, wasting time, not really doing anything, but while i was watching this, and i was on the scene where richard invents middle out <a href="https://www.youtube.com/watch?v=Ex1JuIN0eaA”>(this scene)</a> and like ive watched this show prolly 7 times already, but still something about it, where i was just like, ok this is it. this is my moment. i need to go get it. so i went for a scooty ride, point of no return on loop, and just decided, I have so much potential, i know i can do anything, so I must. cos like fr, nothing is more fun than working hard all day, and going to sleep satisfied every single night. thats literally it, i can just live my dream life and be the best ever, so that’s what i plan to do… <br>
+A few interesting things that happened in the past couple days: <br>
+after day2, i slept for essentially 19 hours straight. lmao. <br>
+yesterday, i sat w/ kuku (my brother) and made a jee plan of sorts. i love you man, i really hope you stick to it, cos thats really all you gotta do to achieve your dreams. <br>
+perhaps the most interesting thing of all: <br>
+So, day before yesterday, i had gone for a drive w/ sana (my meerut friend). i mean the place was really beautiful, it was like a horse course w/ some abandoned buildings
+<img = me&sana> <img= meontower> <br>
+and then we went to starbucks too. I mean I had fun, i like hanging out w/ sana, she’s a cool kid. but during this whole thing, I really realised, just how fucking stupid having any girl distractions at this point would be. like that would genuinely be one of the most retarded things i could do, so I decided to get the craziest cut, i think anyone has ever gotten, just to remind myself what i’m here to do. Change the World. so i mean yeah, on FT w/ sagnik (iitd friend) i did this cut, just so I always remember, I’m locked in. no distractions. sorry hoes <emoji=kiss> <br>
+I mean yeah that’s pretty much it, and now we’re here. I promise btw this was the last time ive skipped a day on my blog, i will make every single day legendary. <br>
+today’s goals: <br>
+<img=whiteboard> 
+I did ISL(imo shortlist) 2022 C1 in the morning already. (which is why it’s ticked off already) <br><br>
+12:28 am 16 July <br> 
+Ok so I was thinking about the staley problem, basically i wanna prove that maj and inv are a symmetric joint distribution (look at day 2, there i had proved these are equidistributed). symmetric joint distribution basically means, no. of permutations w/ inv(w)=a and maj(w)=b is equal to the number of permutations with inv(w)=b and maj(w)=a… <br>
+I follow something known as the <a href=https://monyatwu.com/blog/monymethod>mony method</a> (look at the blog). so ofcourse, i wanna prove this thing myself. I looked, more like flipped through stanley, and the thing is i had not read the equidisitributed proof, but they had basically defined a bijection phi that sends something w/ maj=a to somehting with inv=a. And then they define something called ID(w)=D(w^-1) , the descent set of w inverse…. then they define imaj(w)=maj(w^-1). then they say that magically some-godfuckingknows-how phi preserves ID, and then using the slick fact that w^-1 swaps maj and imaj and that phi preserves imaj, you can prove that imaj and inv are sjd, and then prove that maj and inv are sjd (this was a cool little problem i had to think about myself too, like given what i know about phi and imaj and maj and inv and maybe phi inverse, prove that these three thigns are sjd) <br>
+but wtv ok, i see what their proof is, very cool, but obv i wanna prove everything myself, and I havent read the bijection they defined in Stanley yet, cos I want to solve this problem on my own…. <br>
+So, i did my fav thing, i tried a recursion, like let f(n,a,b) be the number of n permutations w with inv(w)=a and maj(w)=b… Then we wanna prove that f(n,a,b)=f(n,b,a). So assume this holds whenever n<=n and all a,b and look at f(n+1,a,b) <br>
+Somehow, i convinced myself that in n+1, if n+1-i goes to n+1th position, then there are f(n,a-i,b-i) permutations possible. <br>
+btw this would obv solve the problem (can you see how?) But obv to not be too optimistic, i coded, or rather modified my majinv code to get me something which given n, a,b calculates f(n,a,b) for me. and then… ofc this conjecture was wrong <br>
+no way ts is going to be that easy lmao… if something seems too good to be true, it usually isn’t. (unless something=ME <emoji=wink>) at this point i really felt like just going and checking whatsapp or ig or something, cos i was frsutrated, but i decided no, i wanna be the best ever lmao, i aint stopping now. <br>
+At this point, I was confused, so I really thought about my equidistributed proof and then i realised ok well obv this wont work, cos like while it’s true no. of permuations with maj=k and n+1-i at the last position is maj(n,k-i), not n permutations w/ mak=k-i turn into (n+1,k) thingy just by slapping n+1-i at the end. cos if something bigger than n+1-i goes at the nth position, then n becomes a descent too, so you’re looking at things w/ maj=k-n infact… <br>
+this was sort of a brain trip to think about but im glad i pushed through… <br>
+oh wait, just as im writing this, i think i understand how to tweak my conjecture a little bit so as to get the right result, lets fucking go… btw just one thing, the reason why im writing such long posts, i mean cos i know most of my friends right now won’t really understand this math or care about it, but that’s not the point. im writing this shit cos <br>
+1) I like writing about my thoughts, and that’s enough. cos this is my website on my server that i maintain. and i just do whatever the fuck i want cos im the best ever <br>
+2) but also, i feel like when I am one of the best in the world. and like I have achieved like actually completely awesome things, and like actually changed the world, it would be really cool for like the kids at that time to come back and like read my posts, like i feel it would be really inspirational, to see just how the best kid ever, became the best kid ever ;) <br>
+imma go take a piss and get back to my ideaaaaa, lets fucking go <br>
+point of no return- timeless beats on loop <br>
+1:47 am <br>
+dang it, i got so exctied and went down this idea, of like im basically using my equidistributed proof, where we like looked at the last two elements in the permutation right, so i said im gonna count no. of permutaitons f(n+1,a,b) such that n+1-i goes at end. and then you do “casework” on if second last element is n+1-j, then <br>
+1) if j>i  you get f(n-1,a-i-j+1,b-j+1)
+2) if j<i you get f(n-1,a-i-j,b-n-j)
+Ok, so i mean this would be brilliant, cos then we could use my induction hypothesis and count somehow, (btw induction is soooo fucking powerful, what the fuck genuinely man) <br>
+But i tried this with f(8,9,9) and i=2 (btw im soooo fucking happy w/ my code lmao, it’s genuinely so helpful and like i like coding and math, fuck so many tangents im going on, anyways; yeah <br>
+so basically it completely failed. L <br>
+and Can you guess what the issue was, it is literally the exact same issue as last time smh "while it’s true no. of permuations with maj=k and n+1-i at the last position is maj(n,k-i), not n permutations w/ mak=k-i turn into (n+1,k) thingy just by slapping n+1-i at the end. “ <br>
+another stupid ass failed attempt… <br>
+but there is a cool thing about this, cos like when i was working on this idea, i felt soooo excited about it, cos like first off, i love math and this is seriously so cool, cos like im working hard non stop on interesting problems, literally my dream, but more importantly, this would be <br>
+<bold> my first chance to make history <bold> <br>
+If youre not sure what this means, lemme explain, this problem, proving that inv and maj are a sjd. This is probably a veryyy fundamental problem. like if you study any amount of permutation combinatorics, this is a very natural question. It’s literally page 35 of THE MOST POPULAR combo book ever (stanley obv). ffs. So like every combinatorialist or like smart mathematician has prolly read about this, but till now, the only proof that exists of this fact is this weird ass permutation, that no one could ever think of. literally i mean foata prolly stumbled upon that and said woohoo but like there does not exist any actual proof of this fact. of this very fundamental fact. <br>
+So if i could actually find a proof of this, that would actually be crazy. I really wanna replicate this Ilia topuria dialogue, where basically you can ask me: <br>
+if Ashwin sah, Evan chen, x, y, z (where x,y,z are young mathematicians at the top of the world, idk too many names lol) could not solve this problem, maybe its impossible. <br>
+Then I’ll say “i noticed you didn’t say Mony” goddam this is so cold. man i love ufc fighters, the cool ones, thats the level of confidence I have man, I mean even more. and im even more locked in. lets fucking go get it, make history. <br>
+Right now, im out of ideas, so I’ll have to go with a new approach I think…  <br>
+btw this blog is also so fun, cos i worked for like 2 hours right, no results after really deep thinking, but instead of stopping, i just wrote shit in this blog and now im ready to get back to work :) <br>
+3:41 am <br>
+ok so i took a semi short break. btw when im this inspired, even the breaks are so positive and i feel so happy at the end of it. so first off i was looking at some ISL problems then some TSTST problems and stats, and this excited me sooo fucking much (im going to do an olympiad challenge, blog post about it soon :D) but yeah wtv… then i opened IG, looked at a few reels, talked sagnik and daksh, then i read calvin from segments blog post on open AI, and i mean this kind of shit just inspires me so much man, this is literally my life lmao… also i love talking to my friends, i had the funniest joke in a while <img=whatsapp screenshot> <br>
+Then i just shadowboxed and danced in my garden for a while listening to songs, then i came back inside and showered, and now im at my table, ready to get started agian. Life is sooooo inspiring and motivating for me when i just push through and do not stop. there is nothing more fun than this. make this a legendary blog post. woohoo… <br>
+chiwiwis <br>
+5 am <br>
+i have literally zero idea on what to do about this problem. i literally gave up and went on ig, but i realised, the point of this shit is, the longer im working, the smarter im getting, that is literally it. and another thing is, for like a really long time, there hasnt been a math problem that i have tried to solve but couldnt solve. this shits not gonna end my streak man. lets keep going. <br>
+11:42 am <br>
+I was just thinking about this problemm and i think i just passed out for a while on my chair. so i woke up and was like ok i think i should sleep for a while. so at around 5:40ish i went to bed, and did my technique of putting alarms every one hour. this technique basically is yeah put alarms every hour, and th first hour you feel physically capable of getting up, do that. so at around 11, i got up. straightaway shower, and now im at my table, no time wasted. i really really really want to solve this problem. i really want to be the best ever. an i know if i just keep working, everything i want will happen. <br>
+1:56 pm <br>
+this shit is very frustrating, i really do not see any way to do this. but you know what, i really dont give a fuck. the point of my life is to be the best ever, and literally right now, im just going to work non stop, literally non stop, this is it. i dont give a fuck if youre making progress or not, or wtv, i am not going to stop. im literally different man… i wrote some code, that gives you all permutations with a certain ID (inversce descent set), and gives you their corresponding maj and inv, cos i mean apparently there is a bijection which changes maj to inv but keeps ID the same…
+2:32 pm <br>
+just ate breakfast (burgers woohoo) while watching SV episode 8 (season 1).. im literally so inspired rn, this is my life. and listen the thing is, if you just keep going, not stopping for even a while to think about what is happening, thats what i want to do, and ill achieve everything right here. im not even stopping to think about anything right now, lets go. solving unsolved math problems. go make history.
+2:45 pm <br>
+i just got a reallyyyyy cool idea for compressing binary files. i mean yeah ill think more about it sometime later but this seems so cool… <br?
+i mean you know for this problem, the ideal scenario would be like i can actually “calculate” f(n,a,b) and this way i could actually calculate the gen func <br>
+\sum_(w \in S_n) q^maj(w) t^inv(w) <br>
+this would actually be crazy <br>
+4:06 pm <br>
+i think i have an idea for how to proceed. the code to write for that was kind of boring, so this time i asked chatgpt 4o mini high to write it for me, and i mean it works, so i guess i dont need to write all this code especially when the point right now is to do math. i also read Hajime no ippo chapter 1497, listening to karate kid coldplay. this time really man, just dont stop now. pls. <br>
+3:36 am <br>
+one night. tonight. right here. get this shit right here. right now. this changes my life.
+10:35 am <br>
+i worked pretty much all night till about 8-9 ish am when i just collapsed and couldnt work no more… I had a few cool ideas, “cool” more like trash but wtv. I thought of defining g(n,a,b,x) which is just f(n,a,b) but number of these ending in x. didnt really work. i focused and work non stop for so long. <br>
+i finally google if this problem is even solved, and like obv there is the bijection by foata, but apart from that there is just one known solution, which is in a book called algebra on words or something, it’s chapter 11 of the book and the author says each chapter can mayb be done in a graduate course. gg man <br>
+flipped through that shit, my eye =s just glazd over it. i couldnt get myself to give up and read ts yet. <br>
+I went for a scooty ride, and like before  that i was working non stop, no music either. then during scooty ride i listened to take me out hoodtrap. so inspirational man. after coming back, i finally decided to think about imaj more, since it seems all proofs seem to use imaj and inv rather than maj. <br>
+i thought about this for a while, and then maybe thought about asking chatgpt, but i just decided nah man, im going to learn this shit on my own. i wanna figure this out on my own. I really thought about this for a long while. Proved some basic things, like equidistribution, also that number of things in which n+1 goes to n+1-i is imaj(n,k-i) (very similar argument to my maj and inv equidistribution proof) <br>
+And then I finally got i think a new breakthrough… <br>
+I finally managed to convert this problem to a algebraic problem i guess… <br>
+Basically there’s this thing called code(w) which is similar to inversion table, basically if code(w)=(a1,a2,…an) then ai is number of elements to the right of i smaller than i. <br>
+obv inv(w) is just a1+a2+…an. But then i thought about imaj, and i was finally like ok, i is in ID set iff ai > a(i+1)… so this gave me the algebraic definition of imaj…. <br>
+\sum (a_i>a_(i+1)) {i} =imaj(w)… So then f(n,x,y) is the number of simultaneous solutions to \sum a_i= x and \sum _(a_i>a_i+1) i = y… <br>
+Ok so i guess this is atleast some progress.. <br>
+I looked at some very small cases x=1, x=2 and i guess i can kind of see how a proof would progress here but goddamn… <br>
+Man during the scooty ride i was just so excitd, like this is my life, i jsut wanna learn cool math solve deep technical problems and actually be the best eer and change the world. im just so sleepy and tired now man… i guess today taught me that there is a really long way to go. but that just means im going to go even harder.
